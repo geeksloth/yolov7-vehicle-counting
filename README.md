@@ -1,4 +1,4 @@
-![alt text](/static/ss.jpeg)
+![alt text](static/ss.jpeg?raw=true)
 This app is based on YOLOV7 object detection library engine from WongKinYiu repository on https://github.com/WongKinYiu/yolov7 and based on DeepSort object tracking implementation
 
 Run this command to run the app

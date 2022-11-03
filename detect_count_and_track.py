@@ -23,10 +23,10 @@ from sort import *
 """ Random created palette"""
 palette = (2 ** 11 - 1, 2 ** 15 - 1, 2 ** 20 - 1)
 
-area1_pointA = (210,350)
-area1_pointB = (865,350)
-area1_pointC = (165,400)
-area1_pointD = (920,400)
+area1_pointA = (10,300)
+area1_pointB = (500,300)
+area1_pointC = (10,400)
+area1_pointD = (500,400)
 
 #vehicles total counting variables
 array_ids = []
@@ -79,7 +79,7 @@ def draw_boxes(img, bbox, identities=None, categories=None, names=None, offset=(
         if (midpoint_x > area1_pointA[0] and midpoint_x < area1_pointD[0]) and (midpoint_y > area1_pointA[1] and midpoint_y < area1_pointD[1]):
             
             midpoint_color = (0,0,255)
-            print('Kategori : '+str(cat))
+            #print('Catagory : '+str(cat))
             
             #add vehicles counting
             if len(array_ids) > 0:
@@ -221,7 +221,7 @@ def detect(save_img=False):
                 tracked_dets = sort_tracker.update(dets_to_sort)
                 tracks =sort_tracker.getTrackers()
                 
-                print('Tracked Detections : '+str(len(tracked_dets)))
+                #print('Tracked Detections : '+str(len(tracked_dets)))
                 
                 #loop over tracks
                 '''
@@ -244,7 +244,7 @@ def detect(save_img=False):
                     identities = tracked_dets[:, 8]
                     categories = tracked_dets[:, 4]
                     draw_boxes(im0, bbox_xyxy, identities, categories, names)
-                    print('Bbox xy count : '+str(len(bbox_xyxy)))
+                    #print('Bbox xy count : '+str(len(bbox_xyxy)))
                 #........................................................
                 
             # Print time (inference + NMS)
@@ -271,7 +271,7 @@ def detect(save_img=False):
                         modulo_counting = modulo_counting + 100
                         array_ids.clear()
                 
-            cv2.putText(im0, 'Vehicle Counting = '+str(counting), org, font, fontScale, color, thickness, cv2.LINE_AA)            
+            cv2.putText(im0, 'Vehicle Count: '+str(counting), org, font, fontScale, color, thickness, cv2.LINE_AA)            
 
             # Stream results
             if view_img:
